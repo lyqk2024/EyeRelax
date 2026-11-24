@@ -1,5 +1,10 @@
 **EyeRelax —— 一款以强制休息、时间规划、使用限制和数据复盘为核心的个人时间管理工具。**
 
+![Release](https://img.shields.io/github/v/release/lyqk2024/EyeRelax)
+![Platform](https://img.shields.io/badge/Platform-Windows-blue)
+![License](https://img.shields.io/badge/License-GPL--3.0-green)
+![Java](https://img.shields.io/badge/Java-17-orange)
+
 >  EyeRelax 最初的诞生，仅仅是为了让一个整天坐在电脑前的人，能够每隔一段时间站起来走走。
 
 我们并不缺乏投入学习与工作的热情，而是缺乏对时间与节奏的合理管理。
