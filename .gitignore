@@ -1,0 +1,35 @@
+# Local builds and releases
+.gradle/
+build/
+out/
+dist/
+installer/nsis/payload/
+installer/nsis/assets/EyeRelax.exe
+installer/nsis/assets/EyeRelax.cfg
+installer/nsis/assets/SetupWindow.exe
+EyeRelax-Setup-*.exe
+__pycache__/
+*.py[cod]
+*.class
+*.log
+
+# IDE and machine settings
+.idea/
+.vscode/
+*.iml
+local.properties
+.env
+.env.*
+!.env.example
+Thumbs.db
+Desktop.ini
+
+# Signing credentials and runtime data
+*.jks
+*.keystore
+*.pfx
+*.p12
+*.pem
+*.key
+.eye-relax/
+*.sqlite*

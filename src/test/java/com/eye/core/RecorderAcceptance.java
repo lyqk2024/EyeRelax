@@ -1,0 +1,6 @@
+package com.eye.core;
+import java.nio.file.*;import java.time.*;import java.util.*;import java.util.concurrent.*;import javax.swing.*;
+public class RecorderAcceptance {
+ public static void main(String[] args)throws Exception{Path file=Path.of(args[0],"recorder-"+System.nanoTime()+".properties");var stats=new ComputerActivity(file,ZoneId.systemDefault());var latch=new CountDownLatch(2);var recorder=new ComputerActivityRecorder(stats,Clock.systemDefaultZone(),()->{if(SwingUtilities.isEventDispatchThread())throw new AssertionError("foreground on EDT");latch.countDown();return new ComputerActivity.Sample(true,true,"c:\\apps\\a.exe");},()->{if(SwingUtilities.isEventDispatchThread())throw new AssertionError("runtime on EDT");latch.countDown();return Set.of("c:\\apps\\a.exe");});recorder.start();if(!latch.await(3,TimeUnit.SECONDS))throw new AssertionError("sampling failed");
+ for(int i=0;i<100;i++)stats.setPreference("test",Integer.toString(i));recorder.close();var loaded=new ComputerActivity(file,ZoneId.systemDefault());if(!loaded.preference("test","").equals("99"))throw new AssertionError("latest snapshot lost");loaded.close();System.out.println("PASS background sampling and latest snapshot flushed on close");System.exit(0);}
+}
